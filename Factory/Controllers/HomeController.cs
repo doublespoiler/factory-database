@@ -23,7 +23,7 @@ namespace Factory.Controllers
         return View();
       }
 
-      public ActionResult Index()
+      public ActionResult Main()
       {
         return View();
       }
