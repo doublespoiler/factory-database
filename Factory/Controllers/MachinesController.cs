@@ -38,13 +38,14 @@ namespace Factory.Controllers
 
     public ActionResult Details(int id)
     {
-      var thisMachine = _db.Machines.includ(machine => machine.JoinEntities).ThenInclude(join => join.Mechanic).FirstOrDefault(machine => machine.MachineId = id);
+      var thisMachine = _db.Machines.Include(machine => machine.JoinEntities).ThenInclude(join => join.Mechanic).FirstOrDefault(machine => machine.MachineId == id);
       return View(thisMachine);
+
     }
 
     public ActionResult Edit(int id)
     {
-      var thisMachine = _db.Machines.FirstOrDefault(machine => machine.MachineId = id);
+      var thisMachine = _db.Machines.FirstOrDefault(machine => machine.MachineId == id);
       return View(thisMachine);
     }
 
@@ -84,7 +85,7 @@ namespace Factory.Controllers
     public ActionResult DeleteConfirmed(int id)
     {
       var thisMachine = _db.Machines.FirstOrDefault(machine => machine.MachineId == id);
-      _db.Doctors.Remove(thisMachine);
+      _db.Machines.Remove(thisMachine);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }

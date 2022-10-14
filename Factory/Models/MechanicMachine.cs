@@ -10,7 +10,7 @@ namespace Factory.Models
       public int MechanicMachineId { get; set; }
       public int MechanicId { get; set; }
       public int MachineId { get; set; }
-      public virtual Machine machine { get; set; }
-      public virtual Mechanic mechanic { get; set; }
+      public virtual Machine Machine { get; set; }
+      public virtual Mechanic Mechanic { get; set; }
     }
 }
