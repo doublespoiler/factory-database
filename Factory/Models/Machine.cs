@@ -14,6 +14,8 @@ namespace Factory.Models
 
     public int MachineId { get; set; }
     public string MachineName { get; set; }
+    public string MachineManufacturer { get; set; }
+    public string ModelNumber { get; set; }
     public string AssetNumber { get; set; }
     public string LocationNumber { get; set; }
     public virtual ICollection<MechanicMachine> JoinEntities { get; }
