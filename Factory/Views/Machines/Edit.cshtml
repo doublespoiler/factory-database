@@ -1,3 +1,40 @@
 @{
   Layout = "_Layout";
 }
+
+@model Factory.Models.Machine
+
+<h2>Edit</h2>
+
+<h4>Edit this machine: @Html.DisplayFor(model => model.MachineName)</h4>
+
+@using (Html.BeginForm())
+{
+
+  @Html.HiddenFor(model => model.MachineId)
+  <table>
+    <tr>
+      <td>@Html.Raw("Machine Name: ")</td>
+      <td>@Html.TextBoxFor(model => model.MachineName)</td>
+    </tr>
+    <tr>
+      <td>@Html.Raw("Machine Manufacturer: ")</td>
+      <td>@Html.TextBoxFor(model => model.MachineManufacturer)</td>
+    </tr>
+    <tr>
+      <td>@Html.Raw("Model Number: ")</td>
+      <td>@Html.TextBoxFor(model => model.ModelNumber)</td>
+    </tr>
+    <tr>
+      <td>@Html.Raw("Asset Number: ")</td>
+      <td>@Html.TextBoxFor(model => model.AssetNumber)</td>
+    </tr>
+    <tr>
+      <td>@Html.Raw("Location Number: ")</td>
+      <td>@Html.TextBoxFor(model => model.LocationNumber)</td>
+    </tr>
+  </table>
+  <br>
+
+  <input type="submit" value="Save" class="btn btn-primary" /> <a href="/Machines/Index/" class="btn btn-primary">Cancel</a>
+}
