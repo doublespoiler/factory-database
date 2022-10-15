@@ -36,7 +36,7 @@ namespace Factory
 
       app.UseEndpoints(routes =>
       {
-        routes.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
+        routes.MapControllerRoute("default", "{controller=Home}/{action=Login}/{id?}");
       });
 
       app.UseStaticFiles();

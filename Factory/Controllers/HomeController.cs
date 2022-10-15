@@ -23,8 +23,10 @@ namespace Factory.Controllers
         return View();
       }
 
-      public ActionResult Main()
+      public ActionResult Index()
       {
+        ViewBag.AllMechanics = _db.Mechanics.ToList();
+        ViewBag.AllMachines = _db.Machines.ToList();
         return View();
       }
     }

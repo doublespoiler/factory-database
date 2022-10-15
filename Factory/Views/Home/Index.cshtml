@@ -1,5 +1,28 @@
 @{
   Layout = "_Layout";
 }
+@using Factory.Models
 
-Home Index
+<h1>All Mechanics</h1>
+@if(ViewBag.AllMechanics.Count == 0)
+{
+  <p>There are no mechanics yet!</p>
+}
+<ul>
+  @foreach(var mechanic in ViewBag.AllMechanics)
+  {
+    <li>@Html.ActionLink($"{mechanic.MechanicName}", "Details", new { id = mechanic.MechanicId})</li>
+  }
+</ul>
+
+<h1>All Machines</h1>
+@if(ViewBag.AllMachines.Count == 0)
+{
+  <p>There are no machines yet!</p>
+}
+<ul>
+  @foreach(var machine in ViewBag.AllMachines)
+  {
+    <li>@Html.ActionLink($"{machine.MachineName}", "Details", new { id = machine.MachineId})</li>
+  }
+</ul>
