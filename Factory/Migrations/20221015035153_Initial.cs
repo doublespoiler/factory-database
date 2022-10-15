@@ -14,6 +14,8 @@ namespace Factory.Migrations
                     MachineId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     MachineName = table.Column<string>(type: "longtext CHARACTER SET utf8mb4", nullable: true),
+                    MachineManufacturer = table.Column<string>(type: "longtext CHARACTER SET utf8mb4", nullable: true),
+                    ModelNumber = table.Column<string>(type: "longtext CHARACTER SET utf8mb4", nullable: true),
                     AssetNumber = table.Column<string>(type: "longtext CHARACTER SET utf8mb4", nullable: true),
                     LocationNumber = table.Column<string>(type: "longtext CHARACTER SET utf8mb4", nullable: true)
                 },

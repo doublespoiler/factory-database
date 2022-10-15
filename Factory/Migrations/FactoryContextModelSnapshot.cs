@@ -28,7 +28,13 @@ namespace Factory.Migrations
                     b.Property<string>("LocationNumber")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
+                    b.Property<string>("MachineManufacturer")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
                     b.Property<string>("MachineName")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("ModelNumber")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.HasKey("MachineId");
