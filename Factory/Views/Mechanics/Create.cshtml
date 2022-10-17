@@ -1,3 +1,24 @@
 @{
   Layout = "_Layout";
 }
+
+@model Factory.Models.Mechanic
+
+<h4>Add a New Mechanic</h4>
+
+@using (Html.BeginForm())
+{
+    <table>
+      <tr>
+        <td>@Html.Label("Mechanic Name: ")</td> 
+        <td>@Html.EditorFor(model => model.MechanicName)</td>
+      </tr>
+        <tr>
+        <td>@Html.Label("Mechanic Title: ")</td> 
+        <td>@Html.EditorFor(model => model.MechanicTitle)</td>
+      </tr>
+    </table>
+
+    <input type="submit" value="Add new Mechanic" class="btn btn-primary" />
+}
+@Html.ActionLink("Cancel", "Index", null, null, new { @class = "btn btn-primary"})

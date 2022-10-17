@@ -1,0 +1,26 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.MechanicMachine
+
+<h2>Are you sure you want to Remove this Machine from this Mechanic?</h2>
+
+
+<table>
+  <tr>
+    <td>@Html.Label("Mechanic Name: ")</td> 
+    <td>@Html.DisplayFor(model => model.Mechanic.MechanicName)</td>
+  </tr>
+    <tr>
+    <td>@Html.Label("Machine Name: ")</td> 
+    <td>@Html.DisplayFor(model => model.Machine.MachineName)</td>
+  </tr>
+</table>
+
+@using (Html.BeginForm())
+{
+  <input type="submit" value="Remove" class="btn btn-primary"/>
+}
+
+@Html.ActionLink("Cancel", "Details", null, new { id = Model.MechanicId }, new { @class = "btn btn-primary"})

@@ -12,10 +12,10 @@
 {
   @Html.HiddenFor(model => model.MachineId)
 
-  @Html.Label("Select Mechanic")
+  @Html.Label("Select Mechanic: ")
   @Html.DropDownList("MechanicId")
-
-  <input type="submit" value="Save" />
+  <br>
+  <input type="submit" value="Save" class="btn btn-primary"/>
 }
 
-<p>@Html.ActionLink("Back to Machine", "Details", new { id = @Model.MachineId})</p>
+<p>@Html.ActionLink("Back to Machine", "Details", new { id = @Model.MachineId}, new { @class = "btn btn-primary"})</p>

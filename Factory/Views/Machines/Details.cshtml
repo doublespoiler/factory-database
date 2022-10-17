@@ -8,23 +8,23 @@
 <hr />
 <table>
   <tr>
-    <td>@Html.Raw("Machine Name: ")</td>
+    <td>@Html.Label("Machine Name: ")</td>
     <td>@Html.DisplayFor(model => model.MachineName)</td>
   </tr>
   <tr>
-    <td>@Html.Raw("Machine Manufacturer: ")</td>
+    <td>@Html.Label("Machine Manufacturer: ")</td>
     <td>@Html.DisplayFor(model => model.MachineManufacturer)</td>
   </tr>
   <tr>
-    <td>@Html.Raw("Model Number: ")</td>
+    <td>@Html.Label("Model Number: ")</td>
     <td>@Html.DisplayFor(model => model.ModelNumber)</td>
   </tr>
   <tr>
-    <td>@Html.Raw("Asset Number: ")</td>
+    <td>@Html.Label("Asset Number: ")</td>
     <td>@Html.DisplayFor(model => model.AssetNumber)</td>
   </tr>
   <tr>
-    <td>@Html.Raw("Location Number: ")</td>
+    <td>@Html.Label("Location Number: ")</td>
     <td>@Html.DisplayFor(model => model.LocationNumber)</td>
   </tr>
 </table>
@@ -39,12 +39,13 @@ else
   <ul>
     @foreach(var join in Model.JoinEntities)
     {
-      <li>@Html.ActionLink($"{@join.Mechanic.MechanicName}", "Details", "Doctors", new { id = join.Mechanic.MechanicId })</li>
+      <li>@Html.ActionLink($"{@join.Mechanic.MechanicName}", "Details", "Mechanics", new { id = join.Mechanic.MechanicId })</li> @Html.ActionLink("Remove", "Remove",  new { id = join.MechanicMachineId }, new {@class="btn btn-primary"})
     }
   </ul>
 }
 
-<p>@Html.ActionLink("Add a Mechanic", "AddMechanic", new { id = Model.MachineId })</p>
+<p>@Html.ActionLink("Add a Mechanic", "AddMechanic", new { id = Model.MachineId }, new { @class = "btn btn-primary"})</p>
 
-<p>@Html.ActionLink("Edit Machine", "Edit", new { id = Model.MachineId })</p>
-<p>@Html.ActionLink("Delete Machine", "Delete", new { id = Model.MachineId })</p>
+<p>@Html.ActionLink("Edit Machine", "Edit", new { id = Model.MachineId }, new { @class = "btn btn-primary"})</p>
+<p>@Html.ActionLink("Delete Machine", "Delete", new { id = Model.MachineId }, new { @class = "btn btn-primary"})</p>
+<p>@Html.ActionLink("Back to list", "Index", null, null, new {@class = "btn btn-primary"})</p>

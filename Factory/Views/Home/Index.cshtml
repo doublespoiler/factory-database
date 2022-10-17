@@ -11,7 +11,7 @@
 <ul>
   @foreach(var mechanic in ViewBag.AllMechanics)
   {
-    <li>@Html.ActionLink($"{mechanic.MechanicName}", "Details", new { id = mechanic.MechanicId})</li>
+    <li>@Html.ActionLink($"{mechanic.MechanicName}", "Details", "Mechanics", new { id = mechanic.MechanicId})</li>
   }
 </ul>
 
@@ -23,6 +23,6 @@
 <ul>
   @foreach(var machine in ViewBag.AllMachines)
   {
-    <li>@Html.ActionLink($"{machine.MachineName}", "Details", new { id = machine.MachineId})</li>
+    <li>@Html.ActionLink($"{machine.MachineName}", "Details", "Machines", new { id = machine.MachineId})</li>
   }
 </ul>
