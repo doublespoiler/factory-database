@@ -57,7 +57,7 @@ namespace Factory.Controllers
       }
       _db.Entry(machine).State = EntityState.Modified;
       _db.SaveChanges();
-      return RedirectToAction("Index");
+      return RedirectToAction("Details", new { id = machine.MachineId});
     }
 
     public ActionResult AddMechanic(int id)
@@ -75,7 +75,7 @@ namespace Factory.Controllers
         _db.MechanicMachine.Add(new MechanicMachine() {MechanicId = MechanicId, MachineId = machine.MachineId});
         _db.SaveChanges();
       }
-      return RedirectToAction("Index");
+      return RedirectToAction("Details", new { id = machine.MachineId});
     }
 
     public ActionResult Delete(int id)
@@ -88,9 +88,32 @@ namespace Factory.Controllers
     public ActionResult DeleteConfirmed(int id)
     {
       var thisMachine = _db.Machines.FirstOrDefault(machine => machine.MachineId == id);
+      List<MechanicMachine> thisMachineJoins = _db.MechanicMachine.ToList();
+      foreach(MechanicMachine mm in thisMachineJoins)
+      {
+        if(mm.MachineId == id)
+        {
+          _db.MechanicMachine.Remove(mm);
+        }
+      }
       _db.Machines.Remove(thisMachine);
       _db.SaveChanges();
       return RedirectToAction("Index");
+    }
+
+    public ActionResult Remove(int id)
+    {
+      var thisJoin = _db.MechanicMachine.FirstOrDefault(mechanicmachine => mechanicmachine.MechanicMachineId == id);
+      return View(thisJoin);
+    }
+
+    [HttpPost, ActionName("Remove")]
+    public ActionResult RemoveConfirmed(int id)
+    {
+      var thisJoin = _db.MechanicMachine.FirstOrDefault(mechanicmachine => mechanicmachine.MechanicMachineId == id);
+      _db.MechanicMachine.Remove(thisJoin);
+      _db.SaveChanges();
+      return RedirectToAction("Details", new { id = thisJoin.MachineId});
     }
   }
 }
