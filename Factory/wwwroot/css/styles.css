@@ -2,9 +2,12 @@ a, a:visited, a:hover{
   color: black;
 }
 
-button{
-  background-color: #222;
-  border-color: #fff;
+a.btn, a.btn-primary{
+  color:white;
+}
+
+ul{
+  list-style: none;
 }
 
 #bodycontent{
@@ -18,7 +21,7 @@ button{
   width: 100%;
   height: 5vh;
   padding-left: 0.5em;
-  background-color: orangered;
+  background-color: #0069d9;
 }
 
 #renderbody{
@@ -35,6 +38,6 @@ button{
   top: 95vh;
   left: 0px;
   padding-left: 0.5em;
-  background-color: orangered;
+  background-color: #0069d9;
   height: 5vh;
 }
